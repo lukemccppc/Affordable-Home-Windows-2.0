@@ -7,23 +7,24 @@
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --blue-900: #071A33;
-    --blue-800: #0B2647;
-    --blue: #0048A7;
-    --amber: #EFA324;
-    --amber-dark: #C9860F;
+    --primary-900: #1B2224;
+    --primary-800: #2A3336;
+    --primary-700: #3A464B;
+    --primary: #435055;
+    --secondary: #DDF763;
+    --secondary-dark: #5C6B1E;
     --ink: #15212C;
     --slate: #55636F;
     --paper: #FBF9F5;
     --white: #FFFFFF;
     --line: #E3E2DC;
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   body { font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height: 1.6; }
@@ -44,7 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-800) 55%, #0F335E 100%);
+    background: linear-gradient(160deg, var(--primary-900) 0%, var(--primary-800) 55%, var(--primary-700) 100%);
     overflow: hidden;
     text-align: center;
   }
@@ -53,16 +54,16 @@
   .ty-icon {
     width: 76px; height: 76px;
     border-radius: 50%;
-    background: rgba(239,163,36,.16);
-    border: 2px solid rgba(239,163,36,.45);
+    background: rgba(221,247,99,.16);
+    border: 2px solid rgba(221,247,99,.45);
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 28px;
   }
 
   .hero-badge {
     display: inline-block;
-    background: var(--amber);
-    color: var(--blue-900);
+    background: var(--secondary);
+    color: var(--primary-900);
     font-size: 12.5px;
     font-weight: 800;
     letter-spacing: .06em;
@@ -93,10 +94,10 @@
     border-radius: 10px;
     padding: 16px 16px 18px;
   }
-  .next-step .n { color: var(--amber); font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .next-step .n { color: var(--secondary); font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 6px; }
   .next-step p { font-size: 13px; color: rgba(255,255,255,.78); line-height: 1.55; }
 
-  footer { background: var(--blue-900); color: rgba(255,255,255,.6); padding: 30px 24px; }
+  footer { background: var(--primary-900); color: rgba(255,255,255,.6); padding: 30px 24px; }
   .footer-inner {
     max-width: 1100px; margin: 0 auto;
     display: flex; align-items: center; justify-content: space-between;
@@ -128,7 +129,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="ty-icon">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#EFA324" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#DDF763" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="20 6 9 17 4 12"/>
       </svg>
     </div>
