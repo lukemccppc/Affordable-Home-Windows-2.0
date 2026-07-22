@@ -16,16 +16,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --primary-900: #1B2224;
-    --primary-800: #2A3336;
-    --primary-700: #3A464B;
-    --primary: #435055;
-    --primary-600: #5C6A70;
-    --primary-100: #E7ECEC;
-    --primary-50: #F5F7F7;
-    --secondary: #DDF763;
-    --secondary-dark: #5C6B1E;
-    --secondary-light: #FAFEE8;
+    --primary-900: #13233A;
+    --primary-800: #1A304E;
+    --primary-700: #3F5370;
+    --primary: #1D3557;
+    --primary-600: #566881;
+    --primary-100: #E8EBEE;
+    --primary-50: #F4F5F7;
+    --secondary: #FE6C34;
+    --secondary-dark: #B24C24;
+    --secondary-light: #FFEDE7;
     --ink: #15212C;
     --slate: #55636F;
     --slate-light: #8A96A1;
@@ -35,8 +35,8 @@
     --danger: #C8392A;
     --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --shadow-card: 0 1px 2px rgba(27,34,36,.04), 0 12px 32px rgba(27,34,36,.08);
-    --shadow-float: 0 24px 64px rgba(27,34,36,.28);
+    --shadow-card: 0 1px 2px rgba(19,35,58,.04), 0 12px 32px rgba(19,35,58,.08);
+    --shadow-float: 0 24px 64px rgba(19,35,58,.28);
   }
 
   html { scroll-behavior: smooth; }
@@ -140,12 +140,15 @@
   }
   @media (max-width: 640px) {
     .header-cta { display: none; }
+    .header-nav { display: none; }
+    .header-inner { justify-content: center; }
+    .offer-ribbon { display: none; }
   }
 
   /* ─── HERO ─── */
   .hero {
     position: relative;
-    background: var(--primary-900);
+    background: #000;
     overflow: hidden;
   }
   .hero-video {
@@ -161,8 +164,8 @@
     inset: 0;
     z-index: 1;
     background:
-      radial-gradient(1100px 620px at 82% -10%, rgba(221,247,99,.16), transparent 60%),
-      linear-gradient(160deg, rgba(27,34,36,.90) 0%, rgba(42,51,54,.78) 52%, rgba(58,70,75,.55) 100%);
+      radial-gradient(1100px 620px at 82% -10%, rgba(254,108,52,.16), transparent 60%),
+      linear-gradient(160deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.72) 52%, rgba(0,0,0,.5) 100%);
   }
   .hero-grid {
     position: relative;
@@ -179,8 +182,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(221,247,99,.16);
-    border: 1px solid rgba(221,247,99,.4);
+    background: rgba(254,108,52,.16);
+    border: 1px solid rgba(254,108,52,.4);
     color: var(--secondary);
     font-size: 12.5px;
     font-weight: 700;
@@ -225,7 +228,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: rgba(221,247,99,.2);
+    background: rgba(254,108,52,.2);
     display: grid;
     place-items: center;
   }
@@ -254,25 +257,35 @@
     color: var(--primary-900);
     margin-bottom: 4px;
   }
-  .fc-sub { font-size: 13.5px; color: var(--slate); margin-bottom: 18px; }
-
-  .form-progress { margin-bottom: 20px; }
-  .fp-track {
-    height: 6px;
+  .form-progress { margin-bottom: 22px; }
+  .fp-steps {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .fp-dot {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     background: var(--primary-100);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 8px;
+    color: var(--slate-light);
+    font-size: 13.5px;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+    transition: background .25s ease, color .25s ease;
   }
-  .fp-fill {
-    height: 100%;
-    width: 25%;
-    background: linear-gradient(90deg, var(--primary), var(--primary-600));
-    border-radius: 4px;
-    transition: width .35s ease;
+  .fp-dot.is-active { background: var(--secondary); color: var(--white); }
+  .fp-line {
+    flex: 1;
+    height: 3px;
+    background: var(--primary-100);
+    margin: 0 6px;
+    border-radius: 2px;
+    transition: background .25s ease;
   }
-  .fp-label { font-size: 12px; font-weight: 700; color: var(--slate); letter-spacing: .02em; }
-  .fp-label span { color: var(--primary); }
+  .fp-line.is-active { background: var(--secondary); }
 
   .form-step { display: none; animation: stepIn .32s ease; }
   .form-step.is-active { display: block; }
@@ -282,13 +295,6 @@
   .fs-sub { font-size: 13px; color: var(--slate); margin-bottom: 18px; line-height: 1.5; }
 
   .field { margin-bottom: 14px; }
-  .field label {
-    display: block;
-    font-size: 12.5px;
-    font-weight: 700;
-    color: var(--primary-900);
-    margin-bottom: 6px;
-  }
   .field input, .field select {
     width: 100%;
     padding: 13px 14px;
@@ -304,7 +310,7 @@
   }
   .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2355636F' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 34px; }
   .field input::placeholder { color: #A8B2BB; }
-  .field input:focus, .field select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(67,80,85,.12); }
+  .field input:focus, .field select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(29,53,87,.12); }
   .field.has-error input, .field.has-error select { border-color: var(--danger); }
   .field-error { display: none; font-size: 12px; color: var(--danger); margin-top: 6px; font-weight: 600; }
   .field.has-error .field-error { display: block; }
@@ -378,8 +384,7 @@
   .numbered-list {
     display: flex;
     flex-direction: column;
-    max-width: 760px;
-    margin: 0 auto;
+    max-width: 920px;
   }
   .numbered-item {
     display: flex;
@@ -479,7 +484,7 @@
     display: grid; place-items: center;
     margin: 0 auto 18px;
     position: relative; z-index: 1;
-    box-shadow: 0 6px 18px rgba(27,34,36,.25);
+    box-shadow: 0 6px 18px rgba(19,35,58,.25);
   }
   .step-item h4 { font-size: 15.5px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-body); color: var(--primary-900); }
   .step-item p { font-size: 13.5px; color: var(--slate); line-height: 1.6; max-width: 220px; margin: 0 auto; }
@@ -577,7 +582,7 @@
     background: var(--white);
     border-top: 1px solid var(--line);
     padding: 12px 16px;
-    box-shadow: 0 -6px 24px rgba(27,34,36,.12);
+    box-shadow: 0 -6px 24px rgba(19,35,58,.12);
     transform: translateY(100%);
     transition: transform .25s ease;
   }
@@ -606,7 +611,6 @@
     .header-inner { padding: 0 18px; }
     .wrap { padding: 0 18px; }
     .hero-grid { padding: 32px 18px 48px; gap: 32px; }
-    .offer-ribbon { font-size: 12px; }
     .field-row { grid-template-columns: 1fr; }
     .style-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .steps-grid { grid-template-columns: 1fr; }
@@ -652,25 +656,31 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         Limited-Time Offer
       </div>
-      <h1 class="hero-headline">New Windows, Built To Cut Your Energy Bills — Now <em>50% Off</em></h1>
+      <h1 class="hero-headline"><em>50% Off</em> Premium, Energy-Efficient Replacement Windows</h1>
       <p class="hero-sub">Old windows fail quietly, long before they look broken — and the cost shows up on your energy bill every month. Get matched with a certified local pro for a free, no-pressure estimate on energy-efficient, custom-fit replacement windows.</p>
       <div class="hero-checks">
-        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#DDF763" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom-Fit To Your Home</div>
-        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#DDF763" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ENERGY STAR&reg; Certified Options</div>
-        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#DDF763" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Licensed &amp; Insured Local Pros</div>
-        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#DDF763" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Lifetime Transferable Warranty</div>
+        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom-Fit To Your Home</div>
+        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ENERGY STAR&reg; Certified Options</div>
+        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Licensed &amp; Insured Local Pros</div>
+        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Lifetime Transferable Warranty</div>
       </div>
     </div>
 
     <div class="form-card" id="estimate">
       <div class="fc-ribbon">Claim 50% Off — Offer Ends Soon</div>
       <div class="fc-body">
-        <div class="fc-title">Get Your Free Estimate</div>
-        <div class="fc-sub">Takes about a minute. No obligation, no pressure.</div>
+        <div class="fc-title">Get a Free Replacement Window Quote</div>
 
         <div class="form-progress">
-          <div class="fp-track"><div class="fp-fill" id="fpFill"></div></div>
-          <div class="fp-label"><span id="fpStepNum">Step 1</span> of 4 — <span id="fpStepName">Project Location</span></div>
+          <div class="fp-steps" id="fpSteps">
+            <div class="fp-dot is-active">1</div>
+            <div class="fp-line"></div>
+            <div class="fp-dot">2</div>
+            <div class="fp-line"></div>
+            <div class="fp-dot">3</div>
+            <div class="fp-line"></div>
+            <div class="fp-dot">4</div>
+          </div>
         </div>
 
         <form id="quoteForm" novalidate action="thank-you.html" method="GET">
@@ -684,8 +694,7 @@
             <h3 class="fs-title">Where is your project?</h3>
             <p class="fs-sub">We'll match you with a local pro who serves your area.</p>
             <div class="field">
-              <label for="f-zip">ZIP Code</label>
-              <input type="text" id="f-zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="e.g. 20850" autocomplete="postal-code" required />
+              <input type="text" id="f-zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="ZIP Code" aria-label="ZIP Code" autocomplete="postal-code" required />
               <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
             </div>
             <div class="step-actions">
@@ -698,13 +707,11 @@
             <p class="fs-sub">So your local pro can prepare your estimate correctly.</p>
             <div class="field-row">
               <div class="field">
-                <label for="f-first">First Name</label>
-                <input type="text" id="f-first" name="first_name" placeholder="Jane" autocomplete="given-name" required />
+                <input type="text" id="f-first" name="first_name" placeholder="First Name" aria-label="First Name" autocomplete="given-name" required />
                 <span class="field-error">Please enter your first name.</span>
               </div>
               <div class="field">
-                <label for="f-last">Last Name</label>
-                <input type="text" id="f-last" name="last_name" placeholder="Doe" autocomplete="family-name" required />
+                <input type="text" id="f-last" name="last_name" placeholder="Last Name" aria-label="Last Name" autocomplete="family-name" required />
                 <span class="field-error">Please enter your last name.</span>
               </div>
             </div>
@@ -718,25 +725,11 @@
             <h3 class="fs-title">What is your home address?</h3>
             <p class="fs-sub">Used only to confirm service area and schedule your free estimate.</p>
             <div class="field">
-              <label for="f-address">Street Address</label>
-              <input type="text" id="f-address" name="address" placeholder="123 Main St" autocomplete="address-line1" required />
+              <input type="text" id="f-address" name="address" placeholder="Street Address" aria-label="Street Address" autocomplete="address-line1" required />
               <span class="field-error">Please enter your street address.</span>
             </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="f-city">City</label>
-                <input type="text" id="f-city" name="city" placeholder="City" autocomplete="address-level2" required />
-                <span class="field-error">Please enter your city.</span>
-              </div>
-              <div class="field">
-                <label for="f-state">State</label>
-                <select id="f-state" name="state" autocomplete="address-level1" required>
-                  <option value="" disabled selected>Select</option>
-                  <option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option><option>CO</option><option>CT</option><option>DE</option><option>FL</option><option>GA</option><option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option><option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option><option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option><option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option><option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option><option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option><option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option><option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option><option>DC</option>
-                </select>
-                <span class="field-error">Please select your state.</span>
-              </div>
-            </div>
+            <input type="hidden" id="f-city" name="city" />
+            <input type="hidden" id="f-state" name="state" />
             <div class="step-actions">
               <button type="button" class="btn-step btn-back" data-back>← Back</button>
               <button type="button" class="btn-step btn-next" data-next>Continue →</button>
@@ -747,13 +740,11 @@
             <h3 class="fs-title">Let us know how we can reach you</h3>
             <p class="fs-sub">We'll send your free estimate details here. No spam, ever.</p>
             <div class="field">
-              <label for="f-email">Email Address</label>
-              <input type="email" id="f-email" name="email" placeholder="jane@email.com" autocomplete="email" required />
+              <input type="email" id="f-email" name="email" placeholder="Email Address" aria-label="Email Address" autocomplete="email" required />
               <span class="field-error">Please enter a valid email address.</span>
             </div>
             <div class="field">
-              <label for="f-phone">Phone Number</label>
-              <input type="tel" id="f-phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel" required />
+              <input type="tel" id="f-phone" name="phone" placeholder="Phone Number" aria-label="Phone Number" autocomplete="tel" inputmode="tel" required />
               <span class="field-error">Please enter a valid 10-digit phone number.</span>
             </div>
             <div class="step-actions">
@@ -831,7 +822,7 @@
 <!-- ─── BENEFITS ─── -->
 <section class="section">
   <div class="wrap">
-    <div class="section-head center">
+    <div class="section-head">
       <span class="eyebrow">More Than Energy Savings</span>
       <h2 class="section-title">Does Replacing Your Windows Actually Make A Difference?</h2>
       <p class="section-lead">Energy efficiency is only the beginning. Here's what homeowners actually notice after replacing old windows.</p>
@@ -886,7 +877,7 @@
 <!-- ─── STYLE GALLERY ─── -->
 <section class="section section-alt">
   <div class="wrap">
-    <div class="section-head center">
+    <div class="section-head">
       <span class="eyebrow amber">See The Options</span>
       <h2 class="section-title">A Style For Every Home.</h2>
       <p class="section-lead">Your local pro will help you choose the right fit for your home's architecture and your budget. Photos of your options are added after your free estimate — for now, here's a look at common styles.</p>
@@ -927,7 +918,7 @@
 <!-- ─── HOW IT WORKS ─── -->
 <section class="section" id="how-it-works">
   <div class="wrap">
-    <div class="section-head center">
+    <div class="section-head">
       <span class="eyebrow">Simple Process</span>
       <h2 class="section-title">From Estimate To Installed, Effortlessly.</h2>
       <p class="section-lead">Affordable Home connects you with a certified local installer — here's what to expect from start to finish.</p>
@@ -960,7 +951,7 @@
 <!-- ─── TESTIMONIALS ─── -->
 <section class="section section-alt">
   <div class="wrap">
-    <div class="section-head center">
+    <div class="section-head">
       <span class="eyebrow amber">Homeowner Reviews</span>
       <h2 class="section-title">Trusted By Homeowners Across The Region.</h2>
     </div>
@@ -1093,9 +1084,8 @@
     var steps = Array.prototype.slice.call(form.querySelectorAll('.form-step'));
     var totalSteps = steps.length;
     var currentStep = 1;
-    var fpFill = document.getElementById('fpFill');
-    var fpStepNum = document.getElementById('fpStepNum');
-    var fpStepName = document.getElementById('fpStepName');
+    var fpDots = Array.prototype.slice.call(document.querySelectorAll('.fp-dot'));
+    var fpLines = Array.prototype.slice.call(document.querySelectorAll('.fp-line'));
 
     function fieldWrap(input) { return input.closest('.field'); }
 
@@ -1121,10 +1111,8 @@
         stepEl.classList.toggle('is-active', stepNum === n);
       });
       currentStep = n;
-      fpFill.style.width = (n / totalSteps * 100) + '%';
-      fpStepNum.textContent = 'Step ' + n;
-      var activeStep = steps[n - 1];
-      fpStepName.textContent = activeStep.getAttribute('data-step-name');
+      fpDots.forEach(function (dot, i) { dot.classList.toggle('is-active', i + 1 <= n); });
+      fpLines.forEach(function (line, i) { line.classList.toggle('is-active', i + 1 < n); });
     }
 
     form.addEventListener('click', function (e) {
@@ -1165,11 +1153,29 @@
       });
     }
 
-    // ZIP: digits only
+    // ZIP: digits only, then auto-populate hidden city/state once 5 digits are entered
     var zipInput = document.getElementById('f-zip');
+    var cityInput = document.getElementById('f-city');
+    var stateInput = document.getElementById('f-state');
+    var lastLookedUpZip = '';
+    function lookupZip(zip) {
+      if (zip === lastLookedUpZip) return;
+      lastLookedUpZip = zip;
+      fetch('https://api.zippopotam.us/us/' + zip)
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          var place = data && data.places && data.places[0];
+          if (place) {
+            cityInput.value = place['place name'] || '';
+            stateInput.value = place['state abbreviation'] || '';
+          }
+        })
+        .catch(function () { /* non-blocking — form still works without city/state */ });
+    }
     if (zipInput) {
       zipInput.addEventListener('input', function () {
         zipInput.value = zipInput.value.replace(/\D/g, '').slice(0, 5);
+        if (zipInput.value.length === 5) lookupZip(zipInput.value);
       });
     }
 
