@@ -113,21 +113,57 @@
     align-items: center;
     gap: 28px;
   }
+  .header-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
   .header-nav a {
     font-size: 14.5px;
     font-weight: 600;
     color: var(--slate);
     text-decoration: none;
+    white-space: nowrap;
   }
   .header-nav a:hover { color: var(--primary); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    color: var(--primary-900);
+  }
+  .nav-toggle svg .line-2 { transition: opacity .15s ease; }
+  .nav-toggle[aria-expanded="true"] svg .line-1 { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] svg .line-2 { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] svg .line-3 { transform: translateY(-6px) rotate(-45deg); }
+  .nav-toggle svg line { transition: transform .2s ease, opacity .15s ease; transform-origin: center; }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 4px 24px 12px;
+  }
+  .mobile-nav a {
+    padding: 13px 0;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--primary-900);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+
   @media (max-width: 860px) {
-    .header-nav-links { display: none; }
+    .header-nav { display: none; }
+    .nav-toggle { display: flex; }
     .header-inner { height: 62px; }
     .header-logo img { height: 24px; }
-  }
-  @media (max-width: 640px) {
-    .header-nav { display: none; }
-    .header-inner { justify-content: center; }
+    .mobile-nav.is-open { display: flex; }
   }
 
   /* ─── HERO ─── */
@@ -161,20 +197,17 @@
     gap: 56px;
     align-items: start;
   }
+  .hero-copy { min-width: 0; }
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(254,108,52,.16);
-    border: 1px solid rgba(254,108,52,.4);
     color: var(--secondary);
     font-size: 12.5px;
     font-weight: 700;
     letter-spacing: .08em;
     text-transform: uppercase;
-    padding: 7px 14px;
-    border-radius: 20px;
-    margin-bottom: 22px;
+    margin-bottom: 16px;
   }
   .hero-headline {
     font-size: clamp(32px, 4.2vw, 52px);
@@ -192,28 +225,31 @@
     margin-bottom: 30px;
     line-height: 1.65;
   }
-  .hero-checks {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 24px;
-    max-width: 540px;
+  .logo-marquee {
+    max-width: 560px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
   }
-  .hc-item {
+  .logo-track {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: rgba(255,255,255,.92);
-    font-size: 14.5px;
-    font-weight: 600;
+    width: max-content;
+    gap: 44px;
+    animation: logoScroll 26s linear infinite;
   }
-  .hc-check {
+  .logo-track img {
+    height: 26px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: .8;
     flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: rgba(254,108,52,.2);
-    display: grid;
-    place-items: center;
+  }
+  @keyframes logoScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
   /* ─── FORM CARD ─── */
@@ -529,7 +565,7 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 980px) {
     .hero-grid { grid-template-columns: 1fr; padding: 40px 20px 56px; }
-    .hero-headline, .hero-sub, .hero-checks { max-width: 100%; }
+    .hero-headline, .hero-sub, .logo-marquee { max-width: 100%; }
     .form-card { max-width: 460px; }
     .style-grid { grid-template-columns: repeat(2, 1fr); }
     .testi-grid { grid-template-columns: 1fr; }
@@ -568,6 +604,21 @@
         <a href="#faq">FAQ</a>
       </div>
     </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line class="line-1" x1="2" y1="5" x2="20" y2="5"/>
+        <line class="line-2" x1="2" y1="11" x2="20" y2="11"/>
+        <line class="line-3" x1="2" y1="17" x2="20" y2="17"/>
+      </svg>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#why-it-matters">When To Replace</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#styles">Styles</a>
+    <a href="#how-it-works">Our Process</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
   </div>
 </header>
 
@@ -579,17 +630,22 @@
   <div class="hero-video-overlay"></div>
   <div class="hero-grid">
     <div class="hero-copy">
-      <div class="hero-eyebrow">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Limited-Time Offer
-      </div>
+      <div class="hero-eyebrow">Limited-Time Offer</div>
       <h1 class="hero-headline"><em>50% Off</em> Premium, Energy-Efficient Replacement Windows</h1>
       <p class="hero-sub">Upgrade to durable, energy-efficient windows without overpaying. Compare trusted local installers, get a free estimate, and see how affordable new windows can be.</p>
-      <div class="hero-checks">
-        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom-Fit To Your Home</div>
-        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ENERGY STAR&reg; Certified Options</div>
-        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Licensed &amp; Insured Local Pros</div>
-        <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Lifetime Transferable Warranty</div>
+      <div class="logo-marquee" aria-label="Trusted local window installer brands">
+        <div class="logo-track">
+          <img src="assets/logos/wn-logo.svg" alt="" aria-hidden="true" />
+          <img src="assets/logos/logo-b.svg" alt="" aria-hidden="true" />
+          <img src="assets/logos/logo-c.svg" alt="" aria-hidden="true" />
+          <img src="assets/logos/tc-logo.webp" alt="" aria-hidden="true" />
+          <img src="assets/logos/champion-logo.svg" alt="" aria-hidden="true" />
+          <img src="assets/logos/wn-logo.svg" alt="" aria-hidden="true" />
+          <img src="assets/logos/logo-b.svg" alt="" aria-hidden="true" />
+          <img src="assets/logos/logo-c.svg" alt="" aria-hidden="true" />
+          <img src="assets/logos/tc-logo.webp" alt="" aria-hidden="true" />
+          <img src="assets/logos/champion-logo.svg" alt="" aria-hidden="true" />
+        </div>
       </div>
     </div>
 
@@ -708,6 +764,14 @@
         <li><strong>An Outdated Look:</strong> Replacing older windows is one of the easiest ways to boost curb appeal, modernize your home's exterior, and increase its overall value.</li>
       </ul>
     </div>
+
+    <div class="offer-strip">
+      <div>
+        <h3>50% Off Windows + Flexible Financing</h3>
+        <p>Upgrade your home today and pay over time with financing options many homeowners qualify for on the spot.</p>
+      </div>
+      <a href="#estimate" class="btn btn-amber">See If I Qualify</a>
+    </div>
   </div>
 </section>
 
@@ -715,7 +779,7 @@
 <section class="section" id="benefits">
   <div class="wrap">
     <div class="section-head wide">
-      <h2 class="section-title">Benefits of Replacing Your Home's Windows</h2>
+      <h2 class="section-title">Top Benefits of Replacing Your Home's Windows</h2>
       <p class="section-lead">Energy efficiency is only the beginning. Here's what homeowners actually notice after replacing old windows.</p>
     </div>
     <div class="body-list">
@@ -734,8 +798,8 @@
 <!-- ─── STYLE GALLERY ─── -->
 <section class="section section-alt" id="styles">
   <div class="wrap">
-    <div class="section-head">
-      <h2 class="section-title">A Style For Every Home.</h2>
+    <div class="section-head wide">
+      <h2 class="section-title">Thousands of Style and Color Combinations to Choose From</h2>
       <p class="section-lead">Your local pro will help you choose the right fit for your home's architecture and your budget. Photos of your options are added after your free estimate — for now, here's a look at common styles.</p>
     </div>
     <div class="style-grid">
@@ -908,6 +972,22 @@
       window.addEventListener('scroll', function () {
         stickyCta.classList.toggle('is-visible', window.scrollY > 400);
       }, { passive: true });
+    }
+
+    // Mobile hamburger nav
+    var navToggle = document.getElementById('navToggle');
+    var mobileNav = document.getElementById('mobileNav');
+    if (navToggle && mobileNav) {
+      navToggle.addEventListener('click', function () {
+        var isOpen = mobileNav.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      mobileNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileNav.classList.remove('is-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
     }
 
     // Hero video playlist — cycle through all hero videos on loop
