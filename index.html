@@ -347,17 +347,6 @@
     text-align: center;
   }
 
-  /* ─── STAT BAR ─── */
-  .statbar { background: var(--white); border-bottom: 1px solid var(--line); padding: 30px 0; }
-  .statbar-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    text-align: center;
-  }
-  .stat-n { font-family: var(--font-display); font-size: 30px; font-weight: 700; color: var(--primary); }
-  .stat-l { font-size: 13px; color: var(--slate); font-weight: 600; margin-top: 2px; }
-  @media (max-width: 760px) { .statbar-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; } }
 
   /* ─── SECTION GENERIC ─── */
   section.section { padding: 84px 0; }
@@ -385,31 +374,37 @@
   .section-head.center { text-align: center; }
   .section-head.center .section-title, .section-head.center .section-lead { margin-left: auto; margin-right: auto; }
 
-  /* ─── PROBLEM CARDS ─── */
-  .problem-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  /* ─── NUMBERED LIST ─── */
+  .numbered-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .numbered-item {
+    display: flex;
     gap: 22px;
+    align-items: flex-start;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
   }
-  .problem-card {
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 26px 22px;
-    box-shadow: var(--shadow-card);
-  }
-  .problem-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: #FBEAE7;
+  .numbered-item:first-child { padding-top: 0; }
+  .numbered-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .numbered-item .num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-900);
+    color: var(--secondary);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
     display: grid;
     place-items: center;
-    margin-bottom: 16px;
-    color: var(--danger);
   }
-  .problem-card h4 { font-size: 16.5px; font-weight: 700; color: var(--primary-900); margin-bottom: 8px; font-family: var(--font-body); }
-  .problem-card p { font-size: 14px; color: var(--slate); line-height: 1.65; }
+  .numbered-item h4 { font-size: 17px; font-weight: 700; color: var(--primary-900); margin-bottom: 6px; font-family: var(--font-body); }
+  .numbered-item p { font-size: 14.5px; color: var(--slate); line-height: 1.7; }
 
   .bridge-line {
     text-align: center;
@@ -436,71 +431,6 @@
   .energy-stat b { color: var(--primary); }
   .energy-stat cite { display: block; font-size: 12px; color: var(--slate-light); font-style: normal; margin-top: 8px; }
 
-  .diagram-wrap {
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    box-shadow: var(--shadow-card);
-    padding: 36px 30px 30px;
-    margin-top: 56px;
-  }
-  .diagram-svg { max-width: 520px; margin: 0 auto; }
-  .diagram-caption {
-    text-align: center;
-    font-size: 12.5px;
-    color: var(--slate-light);
-    margin-top: 6px;
-  }
-
-  .legend-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px 32px;
-    margin-top: 36px;
-    padding-top: 32px;
-    border-top: 1px solid var(--line);
-  }
-  .legend-item { display: flex; gap: 14px; }
-  .legend-num {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: var(--white);
-    font-weight: 800;
-    font-size: 13px;
-    display: grid;
-    place-items: center;
-  }
-  .legend-item h5 { font-size: 15px; font-weight: 700; color: var(--primary-900); margin-bottom: 4px; font-family: var(--font-body); }
-  .legend-item p { font-size: 13.5px; color: var(--slate); line-height: 1.6; }
-
-  /* ─── BENEFITS ─── */
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .benefit-card {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 26px 22px;
-    border-top: 3px solid var(--primary);
-    box-shadow: var(--shadow-card);
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-  .benefit-card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(27,34,36,.12); }
-  .benefit-icon {
-    width: 46px; height: 46px;
-    background: var(--primary-100);
-    border-radius: 10px;
-    display: grid; place-items: center;
-    margin-bottom: 16px;
-    color: var(--primary);
-  }
-  .benefit-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-body); color: var(--primary-900); }
-  .benefit-card p { font-size: 14px; color: var(--slate); line-height: 1.6; }
 
   /* ─── STYLE GALLERY ─── */
   .style-grid {
@@ -555,7 +485,7 @@
   .step-item p { font-size: 13.5px; color: var(--slate); line-height: 1.6; max-width: 220px; margin: 0 auto; }
 
   /* ─── FAQ / OBJECTIONS ─── */
-  .faq-list { max-width: 760px; }
+  .faq-list { max-width: 760px; margin: 0 auto; }
   .faq-item {
     background: var(--white);
     border: 1px solid var(--line);
@@ -665,13 +595,10 @@
     .hero-grid { grid-template-columns: 1fr; padding: 40px 20px 56px; }
     .hero-headline, .hero-sub, .hero-checks { max-width: 100%; }
     .form-card { max-width: 460px; }
-    .problem-grid { grid-template-columns: repeat(2, 1fr); }
-    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
     .style-grid { grid-template-columns: repeat(2, 1fr); }
     .testi-grid { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
     .steps-grid::before { display: none; }
-    .legend-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 640px) {
@@ -681,15 +608,13 @@
     .hero-grid { padding: 32px 18px 48px; gap: 32px; }
     .offer-ribbon { font-size: 12px; }
     .field-row { grid-template-columns: 1fr; }
-    .problem-grid { grid-template-columns: 1fr; }
-    .benefits-grid { grid-template-columns: 1fr; }
     .style-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .steps-grid { grid-template-columns: 1fr; }
-    .statbar-grid { grid-template-columns: repeat(2, 1fr); }
     .offer-strip { flex-direction: column; text-align: center; padding: 32px 24px; }
     .sticky-cta { display: block; }
     body { padding-bottom: 62px; }
-    .diagram-wrap { padding: 28px 18px 24px; }
+    .numbered-item { gap: 16px; padding: 20px 0; }
+    .numbered-item .num { width: 34px; height: 34px; font-size: 15px; }
   }
 </style>
 </head>
@@ -705,7 +630,6 @@
     <nav class="header-nav">
       <div class="header-nav-links header-nav">
         <a href="#why-it-matters">Why It Matters</a>
-        <a href="#energy">Energy Savings</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#faq">FAQ</a>
       </div>
@@ -718,8 +642,8 @@
 
 <!-- ─── HERO ─── -->
 <section class="hero" id="top">
-  <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
-    <source src="assets/hero-video.mp4" type="video/mp4" />
+  <video id="heroVideo" class="hero-video" autoplay muted playsinline aria-hidden="true">
+    <source src="assets/hero-video-1.mp4" type="video/mp4" />
   </video>
   <div class="hero-video-overlay"></div>
   <div class="hero-grid">
@@ -848,151 +772,59 @@
   </div>
 </section>
 
-<!-- ─── STAT BAR ─── -->
-<div class="statbar">
-  <div class="wrap statbar-grid">
-    <div><div class="stat-n">20+</div><div class="stat-l">Years Connecting Homeowners</div></div>
-    <div><div class="stat-n">A+</div><div class="stat-l">BBB Rating</div></div>
-    <div><div class="stat-n">50K+</div><div class="stat-l">Windows Installed</div></div>
-    <div><div class="stat-n">Lifetime</div><div class="stat-l">Warranty Coverage</div></div>
-  </div>
-</div>
-
 <!-- ─── PROBLEM / AGITATION ─── -->
 <section class="section" id="why-it-matters">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Why It Matters</span>
-      <h2 class="section-title">Your Windows Might Be Working Against You.</h2>
-      <p class="section-lead">Most homeowners don't think about replacing windows until something visibly breaks. But windows fail slowly, long before they look broken — and the cost shows up on your energy bill every single month.</p>
+      <h2 class="section-title">How To Tell If Your Windows Need To Be Replaced.</h2>
+      <p class="section-lead">Most homeowners don't think about replacing windows until something visibly breaks. But windows fail slowly, long before they look broken — and the cost shows up on your energy bill every single month. Here are the five most common signs.</p>
     </div>
 
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19 12H2"/></svg></div>
-        <h4>Drafts You Can Feel</h4>
-        <p>Warped frames and broken seals let outside air in, even with the windows shut. If you feel a breeze near a closed window, the seal has already failed.</p>
+    <div class="numbered-list">
+      <div class="numbered-item">
+        <div class="num">1</div>
+        <div>
+          <h4>Drafts You Can Feel</h4>
+          <p>Warped frames and broken seals let outside air in, even with the windows shut. If you feel a breeze near a closed window, the seal has already failed.</p>
+        </div>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h4>Rising Energy Bills</h4>
-        <p>As insulation breaks down, your HVAC system works harder to hold a comfortable temperature — every season, whether you notice it or not.</p>
+      <div class="numbered-item">
+        <div class="num">2</div>
+        <div>
+          <h4>Rising Energy Bills</h4>
+          <p>As insulation breaks down, your HVAC system works harder to hold a comfortable temperature — every season, whether you notice it or not. The U.S. Department of Energy estimates that heat gain and loss through windows accounts for 25–30% of a home's heating and cooling energy use.</p>
+        </div>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="10.5" r="1.2"/><circle cx="13" cy="14" r="1.2"/><circle cx="16.5" cy="9" r="1.2"/></svg></div>
-        <h4>Foggy Or Cloudy Glass</h4>
-        <p>Condensation trapped between panes means the insulating seal has failed and the gas fill has escaped — a repair job that usually isn't worth doing.</p>
+      <div class="numbered-item">
+        <div class="num">3</div>
+        <div>
+          <h4>Foggy Or Cloudy Glass</h4>
+          <p>Condensation trapped between panes means the insulating seal has failed and the gas fill has escaped — a repair job that usually isn't worth doing.</p>
+        </div>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15h18M9 3v18"/></svg></div>
-        <h4>Stuck Or Hard-To-Open</h4>
-        <p>Age, humidity, and years of repainting cause frames to swell, warp, or bind — turning a simple task into a daily fight with the window.</p>
+      <div class="numbered-item">
+        <div class="num">4</div>
+        <div>
+          <h4>Stuck Or Hard-To-Open Windows</h4>
+          <p>Age, humidity, and years of repainting cause frames to swell, warp, or bind — turning a simple task into a daily fight with the window.</p>
+        </div>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
-        <h4>Noise Getting Louder</h4>
-        <p>Thinning seals and single-pane glass do little to block outside sound — traffic, neighbors, and weather all come through more than they should.</p>
+      <div class="numbered-item">
+        <div class="num">5</div>
+        <div>
+          <h4>Soft, Discolored, Or Rotting Frames</h4>
+          <p>Moisture intrusion around aging frames can lead to rot and, if ignored long enough, costly structural damage well beyond the window itself.</p>
+        </div>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <h4>Soft Or Discolored Frames</h4>
-        <p>Moisture intrusion around aging frames can lead to rot and, if ignored long enough, costly structural damage well beyond the window itself.</p>
-      </div>
+    </div>
+
+    <div class="energy-stat">
+      <b>Upgrading from single-pane or older aluminum-frame windows to ENERGY STAR&reg; certified replacements is one of the most effective ways to close that energy gap.</b> Modern replacement windows are engineered specifically to stop the drafts, condensation, and heat loss that come with age.
+      <cite>Source: U.S. Department of Energy / ENERGY STAR&reg; residential window guidance.</cite>
     </div>
 
     <p class="bridge-line">The good news: none of this is permanent.</p>
-  </div>
-</section>
-
-<!-- ─── ENERGY EFFICIENCY / SOLUTION ─── -->
-<section class="section section-alt" id="energy">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow amber">How Modern Windows Solve It</span>
-      <h2 class="section-title">Where Your Energy Bill Actually Goes.</h2>
-      <p class="section-lead">Today's replacement windows are engineered specifically to stop the energy loss that older windows allow — through the glass, the frame, and everywhere they meet.</p>
-      <div class="energy-stat">
-        <b>The U.S. Department of Energy estimates that heat gain and loss through windows accounts for 25–30% of a home's heating and cooling energy use.</b> Upgrading from single-pane or older aluminum-frame windows to ENERGY STAR&reg; certified replacements is one of the most effective ways to close that gap.
-        <cite>Source: U.S. Department of Energy / ENERGY STAR&reg; residential window guidance.</cite>
-      </div>
-    </div>
-
-    <div class="diagram-wrap">
-      <svg class="diagram-svg" viewBox="0 0 400 380" role="img" aria-label="Cross-section diagram of an energy-efficient window showing the insulated frame, low-E glass panes, argon gas fill, and warm-edge spacer">
-        <!-- outer boundary -->
-        <rect x="84" y="70" width="232" height="240" fill="none" stroke="var(--ink)" stroke-opacity="0.12" stroke-width="1"/>
-        <!-- frame chamber A -->
-        <rect x="84" y="70" width="70" height="240" fill="var(--primary-100)" stroke="var(--primary)" stroke-width="2"/>
-        <line x1="107" y1="70" x2="107" y2="310" stroke="var(--primary)" stroke-opacity="0.35" stroke-width="1.5"/>
-        <line x1="131" y1="70" x2="131" y2="310" stroke="var(--primary)" stroke-opacity="0.35" stroke-width="1.5"/>
-        <!-- pane 1 -->
-        <rect x="154" y="70" width="16" height="240" fill="rgba(67,80,85,0.14)" stroke="var(--primary-600)" stroke-width="1.5"/>
-        <!-- low-e coating line (part of pane, described in legend item 2) -->
-        <line x1="169" y1="72" x2="169" y2="308" stroke="var(--secondary-dark)" stroke-width="3"/>
-        <!-- gas fill gap -->
-        <rect x="170" y="70" width="60" height="240" fill="var(--secondary-light)"/>
-        <circle cx="184" cy="110" r="2.2" fill="var(--secondary-dark)" opacity="0.55"/>
-        <circle cx="205" cy="140" r="2.2" fill="var(--secondary-dark)" opacity="0.55"/>
-        <circle cx="195" cy="180" r="2.2" fill="var(--secondary-dark)" opacity="0.55"/>
-        <circle cx="215" cy="210" r="2.2" fill="var(--secondary-dark)" opacity="0.55"/>
-        <circle cx="188" cy="240" r="2.2" fill="var(--secondary-dark)" opacity="0.55"/>
-        <circle cx="210" cy="270" r="2.2" fill="var(--secondary-dark)" opacity="0.55"/>
-        <circle cx="198" cy="95" r="2.2" fill="var(--secondary-dark)" opacity="0.55"/>
-        <!-- warm-edge spacer bars -->
-        <rect x="170" y="70" width="60" height="10" fill="var(--primary-600)" rx="2"/>
-        <rect x="170" y="300" width="60" height="10" fill="var(--primary-600)" rx="2"/>
-        <!-- pane 2 -->
-        <rect x="230" y="70" width="16" height="240" fill="rgba(67,80,85,0.14)" stroke="var(--primary-600)" stroke-width="1.5"/>
-        <!-- frame chamber B -->
-        <rect x="246" y="70" width="70" height="240" fill="var(--primary-100)" stroke="var(--primary)" stroke-width="2"/>
-        <line x1="269" y1="70" x2="269" y2="310" stroke="var(--primary)" stroke-opacity="0.35" stroke-width="1.5"/>
-        <line x1="293" y1="70" x2="293" y2="310" stroke="var(--primary)" stroke-opacity="0.35" stroke-width="1.5"/>
-
-        <!-- leader: 1 Frame (top-left) -->
-        <circle cx="119" cy="70" r="3" fill="var(--primary)"/>
-        <line x1="119" y1="70" x2="119" y2="45" stroke="var(--slate-light)" stroke-width="1.5"/>
-        <circle cx="119" cy="34" r="13" fill="var(--primary)"/>
-        <text x="119" y="39" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="white">1</text>
-
-        <!-- leader: 4 Warm-edge spacer (top-right of the two top markers) -->
-        <circle cx="200" cy="70" r="3" fill="var(--primary)"/>
-        <line x1="200" y1="70" x2="200" y2="45" stroke="var(--slate-light)" stroke-width="1.5"/>
-        <circle cx="200" cy="34" r="13" fill="var(--primary)"/>
-        <text x="200" y="39" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="white">4</text>
-
-        <!-- leader: 2 Glass panes (bottom-left) -->
-        <circle cx="162" cy="310" r="3" fill="var(--primary)"/>
-        <line x1="162" y1="310" x2="162" y2="335" stroke="var(--slate-light)" stroke-width="1.5"/>
-        <circle cx="162" cy="346" r="13" fill="var(--primary)"/>
-        <text x="162" y="351" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="white">2</text>
-
-        <!-- leader: 3 Argon gas fill (bottom-right) -->
-        <circle cx="200" cy="310" r="3" fill="var(--primary)"/>
-        <line x1="200" y1="310" x2="200" y2="335" stroke="var(--slate-light)" stroke-width="1.5"/>
-        <circle cx="200" cy="346" r="13" fill="var(--primary)"/>
-        <text x="200" y="351" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="800" fill="white">3</text>
-      </svg>
-      <p class="diagram-caption">Simplified cross-section of a typical energy-efficient replacement window</p>
-
-      <div class="legend-grid">
-        <div class="legend-item">
-          <div class="legend-num">1</div>
-          <div><h5>Insulated Multi-Chamber Frame</h5><p>Multiple internal air chambers insulate the frame itself, so heat can't transfer through it the way it does with older aluminum or single-chamber frames.</p></div>
-        </div>
-        <div class="legend-item">
-          <div class="legend-num">2</div>
-          <div><h5>Low-E Glass Panes</h5><p>A microscopically thin, invisible coating reflects heat while still letting daylight through — keeping summer heat out and winter warmth in.</p></div>
-        </div>
-        <div class="legend-item">
-          <div class="legend-num">3</div>
-          <div><h5>Argon Gas Fill</h5><p>The space between panes is filled with argon (or krypton) gas, which conducts far less heat than ordinary air.</p></div>
-        </div>
-        <div class="legend-item">
-          <div class="legend-num">4</div>
-          <div><h5>Warm-Edge Spacer</h5><p>A non-metal spacer keeps the edge of the glass from becoming a cold spot — a leading cause of condensation and frost at window corners.</p></div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1001,39 +833,51 @@
   <div class="wrap">
     <div class="section-head center">
       <span class="eyebrow">More Than Energy Savings</span>
-      <h2 class="section-title">Every Benefit Adds Up.</h2>
+      <h2 class="section-title">Does Replacing Your Windows Actually Make A Difference?</h2>
       <p class="section-lead">Energy efficiency is only the beginning. Here's what homeowners actually notice after replacing old windows.</p>
     </div>
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h4>Lower Monthly Energy Bills</h4>
-        <p>Less strain on your HVAC system means real, ongoing savings — season after season, not just a one-time discount.</p>
+    <div class="numbered-list">
+      <div class="numbered-item">
+        <div class="num">1</div>
+        <div>
+          <h4>Lower Monthly Energy Bills</h4>
+          <p>Less strain on your HVAC system means real, ongoing savings — season after season, not just a one-time discount.</p>
+        </div>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div>
-        <h4>A More Comfortable Home</h4>
-        <p>No more cold spots near the window in winter, or trapped heat in summer — just a more even temperature, room to room.</p>
+      <div class="numbered-item">
+        <div class="num">2</div>
+        <div>
+          <h4>A More Comfortable Home</h4>
+          <p>No more cold spots near the window in winter, or trapped heat in summer — just a more even temperature, room to room.</p>
+        </div>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
-        <h4>Quieter Living Spaces</h4>
-        <p>Dual-pane glass and tighter seals cut down on outside noise, so traffic and neighbors stay outside where they belong.</p>
+      <div class="numbered-item">
+        <div class="num">3</div>
+        <div>
+          <h4>Quieter Living Spaces</h4>
+          <p>Dual-pane glass and tighter seals cut down on outside noise, so traffic and neighbors stay outside where they belong.</p>
+        </div>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20M2 12h20"/></svg></div>
-        <h4>Furniture &amp; Flooring Protection</h4>
-        <p>UV-blocking coatings help prevent the fading that harsh sunlight causes on floors, rugs, art, and furniture over time.</p>
+      <div class="numbered-item">
+        <div class="num">4</div>
+        <div>
+          <h4>Furniture &amp; Flooring Protection</h4>
+          <p>UV-blocking coatings help prevent the fading that harsh sunlight causes on floors, rugs, art, and furniture over time.</p>
+        </div>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h4>Low Maintenance, Long Life</h4>
-        <p>Modern vinyl and fiberglass frames won't rot, rust, or warp — no scraping, sanding, or repainting required.</p>
+      <div class="numbered-item">
+        <div class="num">5</div>
+        <div>
+          <h4>Low Maintenance, Long Life</h4>
+          <p>Modern vinyl and fiberglass frames won't rot, rust, or warp — no scraping, sanding, or repainting required.</p>
+        </div>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M13 21V11l6 3v7"/></svg></div>
-        <h4>Added Home Value</h4>
-        <p>Updated, energy-efficient windows are one of the most visible — and most valued — upgrades a home can have.</p>
+      <div class="numbered-item">
+        <div class="num">6</div>
+        <div>
+          <h4>Added Home Value</h4>
+          <p>Updated, energy-efficient windows are one of the most visible — and most valued — upgrades a home can have.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1146,7 +990,7 @@
 <!-- ─── FAQ / OBJECTION HANDLING ─── -->
 <section class="section" id="faq">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head center">
       <span class="eyebrow">Common Questions</span>
       <h2 class="section-title">Before You Reach Out.</h2>
       <p class="section-lead">A few things homeowners usually want to know before requesting an estimate.</p>
@@ -1220,6 +1064,19 @@
       window.addEventListener('scroll', function () {
         stickyCta.classList.toggle('is-visible', window.scrollY > 400);
       }, { passive: true });
+    }
+
+    // Hero video playlist — cycle through all hero videos on loop
+    var heroVideo = document.getElementById('heroVideo');
+    if (heroVideo) {
+      var heroSources = ['assets/hero-video-1.mp4', 'assets/hero-video-2.mp4', 'assets/hero-video-3.mp4'];
+      var heroIndex = 0;
+      heroVideo.addEventListener('ended', function () {
+        heroIndex = (heroIndex + 1) % heroSources.length;
+        heroVideo.src = heroSources[heroIndex];
+        heroVideo.load();
+        heroVideo.play();
+      });
     }
 
     // Capture UTM / click params for attribution
