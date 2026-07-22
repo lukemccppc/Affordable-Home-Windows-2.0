@@ -194,10 +194,13 @@
     padding: 64px 24px 80px;
     display: grid;
     grid-template-columns: 1.05fr 440px;
-    gap: 56px;
+    column-gap: 56px;
+    row-gap: 32px;
     align-items: start;
   }
-  .hero-copy { min-width: 0; }
+  .hero-copy { min-width: 0; grid-column: 1; grid-row: 1; }
+  .form-card { grid-column: 2; grid-row: 1 / span 2; }
+  .logo-marquee { grid-column: 1; grid-row: 2; }
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -217,7 +220,7 @@
     margin-bottom: 20px;
     max-width: 620px;
   }
-  .hero-headline em { font-style: italic; color: var(--white); font-weight: 600; }
+  .hero-headline em { font-style: normal; color: var(--white); font-weight: 600; }
   .hero-sub {
     font-size: 17.5px;
     color: rgba(255,255,255,.82);
@@ -258,16 +261,6 @@
     border-radius: 14px;
     box-shadow: var(--shadow-float);
     overflow: hidden;
-  }
-  .fc-ribbon {
-    background: var(--secondary);
-    color: var(--primary-900);
-    text-align: center;
-    font-size: 12.5px;
-    font-weight: 800;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    padding: 10px 14px;
   }
   .fc-body { padding: 26px 26px 22px; }
   .fc-title {
@@ -375,6 +368,8 @@
 
   /* ─── SECTION GENERIC ─── */
   section.section { padding: 84px 0; }
+  #why-it-matters { padding-bottom: 24px; }
+  #benefits { padding-top: 40px; }
   .section-alt { background: var(--primary-50); }
   .section-title {
     font-size: clamp(26px, 3.2vw, 38px);
@@ -565,6 +560,7 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 980px) {
     .hero-grid { grid-template-columns: 1fr; padding: 40px 20px 56px; }
+    .hero-copy, .form-card, .logo-marquee { grid-column: auto; grid-row: auto; }
     .hero-headline, .hero-sub, .logo-marquee { max-width: 100%; }
     .form-card { max-width: 460px; }
     .style-grid { grid-template-columns: repeat(2, 1fr); }
@@ -578,6 +574,9 @@
     .header-inner { padding: 0 18px; }
     .wrap { padding: 0 18px; }
     .hero-grid { padding: 32px 18px 48px; gap: 32px; }
+    .hero-headline { font-size: 38px; }
+    .hero-sub { display: none; }
+    .logo-marquee { margin-top: 8px; }
     .field-row { grid-template-columns: 1fr; }
     .style-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .steps-grid { grid-template-columns: 1fr; }
@@ -633,24 +632,9 @@
       <div class="hero-eyebrow">Limited-Time Offer</div>
       <h1 class="hero-headline"><em>50% Off</em> Premium, Energy-Efficient Replacement Windows</h1>
       <p class="hero-sub">Upgrade to durable, energy-efficient windows without overpaying. Compare trusted local installers, get a free estimate, and see how affordable new windows can be.</p>
-      <div class="logo-marquee" aria-label="Trusted local window installer brands">
-        <div class="logo-track">
-          <img src="assets/logos/wn-logo.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos/logo-b.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos/logo-c.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos/tc-logo.webp" alt="" aria-hidden="true" />
-          <img src="assets/logos/champion-logo.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos/wn-logo.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos/logo-b.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos/logo-c.svg" alt="" aria-hidden="true" />
-          <img src="assets/logos/tc-logo.webp" alt="" aria-hidden="true" />
-          <img src="assets/logos/champion-logo.svg" alt="" aria-hidden="true" />
-        </div>
-      </div>
     </div>
 
     <div class="form-card" id="estimate">
-      <div class="fc-ribbon">Claim 50% Off — Offer Ends Soon</div>
       <div class="fc-body">
         <div class="fc-title">Get a Free Replacement Window Quote</div>
 
@@ -741,6 +725,21 @@
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><rect x="1.5" y="5.5" width="10" height="7" rx="1.5" stroke="#8A96A1" stroke-width="1.2"/><path d="M4 5.5V4C4 2.3 9 2.3 9 4V5.5" stroke="#8A96A1" stroke-width="1.2"/></svg>
           Your information is safe and secure.
         </div>
+      </div>
+    </div>
+
+    <div class="logo-marquee" aria-label="Trusted local window installer brands">
+      <div class="logo-track">
+        <img src="assets/logos/wn-logo.svg" alt="" aria-hidden="true" />
+        <img src="assets/logos/logo-b.svg" alt="" aria-hidden="true" />
+        <img src="assets/logos/logo-c.svg" alt="" aria-hidden="true" />
+        <img src="assets/logos/tc-logo.webp" alt="" aria-hidden="true" />
+        <img src="assets/logos/champion-logo.svg" alt="" aria-hidden="true" />
+        <img src="assets/logos/wn-logo.svg" alt="" aria-hidden="true" />
+        <img src="assets/logos/logo-b.svg" alt="" aria-hidden="true" />
+        <img src="assets/logos/logo-c.svg" alt="" aria-hidden="true" />
+        <img src="assets/logos/tc-logo.webp" alt="" aria-hidden="true" />
+        <img src="assets/logos/champion-logo.svg" alt="" aria-hidden="true" />
       </div>
     </div>
   </div>
