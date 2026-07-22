@@ -87,17 +87,6 @@
   }
   .btn-outline:hover { background: rgba(255,255,255,.12); }
 
-  /* ─── OFFER RIBBON ─── */
-  .offer-ribbon {
-    background: var(--primary-900);
-    color: var(--white);
-    text-align: center;
-    font-size: 13.5px;
-    font-weight: 600;
-    letter-spacing: .02em;
-    padding: 9px 16px;
-  }
-  .offer-ribbon strong { color: var(--secondary); font-weight: 800; }
 
   /* ─── HEADER ─── */
   .site-header {
@@ -142,7 +131,6 @@
     .header-cta { display: none; }
     .header-nav { display: none; }
     .header-inner { justify-content: center; }
-    .offer-ribbon { display: none; }
   }
 
   /* ─── HERO ─── */
@@ -163,9 +151,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background:
-      radial-gradient(1100px 620px at 82% -10%, rgba(254,108,52,.16), transparent 60%),
-      linear-gradient(160deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.72) 52%, rgba(0,0,0,.5) 100%);
+    background: linear-gradient(160deg, rgba(0,0,0,.80) 0%, rgba(0,0,0,.62) 52%, rgba(0,0,0,.40) 100%);
   }
   .hero-grid {
     position: relative;
@@ -201,7 +187,7 @@
     margin-bottom: 20px;
     max-width: 620px;
   }
-  .hero-headline em { font-style: italic; color: var(--secondary); font-weight: 600; }
+  .hero-headline em { font-style: italic; color: var(--white); font-weight: 600; }
   .hero-sub {
     font-size: 17.5px;
     color: rgba(255,255,255,.82);
@@ -379,62 +365,20 @@
   .section-head { margin-bottom: 48px; }
   .section-head.center { text-align: center; }
   .section-head.center .section-title, .section-head.center .section-lead { margin-left: auto; margin-right: auto; }
+  .section-head.wide .section-title, .section-head.wide .section-lead { max-width: 900px; }
 
-  /* ─── NUMBERED LIST ─── */
-  .numbered-list {
+  /* ─── BODY LIST (simple, text-based) ─── */
+  .body-list { max-width: 900px; }
+  .body-list ul {
+    list-style: disc;
+    padding-left: 22px;
     display: flex;
     flex-direction: column;
-    max-width: 920px;
+    gap: 14px;
   }
-  .numbered-item {
-    display: flex;
-    gap: 22px;
-    align-items: flex-start;
-    padding: 26px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .numbered-item:first-child { padding-top: 0; }
-  .numbered-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .numbered-item .num {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--primary-900);
-    color: var(--secondary);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 17px;
-    display: grid;
-    place-items: center;
-  }
-  .numbered-item h4 { font-size: 17px; font-weight: 700; color: var(--primary-900); margin-bottom: 6px; font-family: var(--font-body); }
-  .numbered-item p { font-size: 14.5px; color: var(--slate); line-height: 1.7; }
+  .body-list li { font-size: 16px; color: var(--ink); line-height: 1.75; }
+  .body-list li strong { color: var(--primary-900); }
 
-  .bridge-line {
-    text-align: center;
-    margin-top: 44px;
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-style: italic;
-    color: var(--primary-900);
-  }
-
-  /* ─── ENERGY / SOLUTION SECTION ─── */
-  .energy-stat {
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--secondary-dark);
-    border-radius: 10px;
-    padding: 20px 24px;
-    max-width: 620px;
-    font-size: 15px;
-    color: var(--ink);
-    line-height: 1.65;
-    margin-top: 20px;
-  }
-  .energy-stat b { color: var(--primary); }
-  .energy-stat cite { display: block; font-size: 12px; color: var(--slate-light); font-style: normal; margin-top: 8px; }
 
 
   /* ─── STYLE GALLERY ─── */
@@ -617,14 +561,10 @@
     .offer-strip { flex-direction: column; text-align: center; padding: 32px 24px; }
     .sticky-cta { display: block; }
     body { padding-bottom: 62px; }
-    .numbered-item { gap: 16px; padding: 20px 0; }
-    .numbered-item .num { width: 34px; height: 34px; font-size: 15px; }
   }
 </style>
 </head>
 <body>
-
-<div class="offer-ribbon">Limited-Time Savings Event: <strong>50% Off New Windows</strong> — Free Estimate, No Obligation</div>
 
 <header class="site-header">
   <div class="header-inner">
@@ -657,7 +597,7 @@
         Limited-Time Offer
       </div>
       <h1 class="hero-headline"><em>50% Off</em> Premium, Energy-Efficient Replacement Windows</h1>
-      <p class="hero-sub">Old windows fail quietly, long before they look broken — and the cost shows up on your energy bill every month. Get matched with a certified local pro for a free, no-pressure estimate on energy-efficient, custom-fit replacement windows.</p>
+      <p class="hero-sub">Upgrade to durable, energy-efficient windows without overpaying. Compare trusted local installers, get a free estimate, and see how affordable new windows can be.</p>
       <div class="hero-checks">
         <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom-Fit To Your Home</div>
         <div class="hc-item"><span class="hc-check"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><polyline points="2,7.5 5.5,11 12,3" stroke="#FE6C34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ENERGY STAR&reg; Certified Options</div>
@@ -766,110 +706,42 @@
 <!-- ─── PROBLEM / AGITATION ─── -->
 <section class="section" id="why-it-matters">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head wide">
       <span class="eyebrow">Why It Matters</span>
-      <h2 class="section-title">How To Tell If Your Windows Need To Be Replaced.</h2>
-      <p class="section-lead">Most homeowners don't think about replacing windows until something visibly breaks. But windows fail slowly, long before they look broken — and the cost shows up on your energy bill every single month. Here are the five most common signs.</p>
+      <h2 class="section-title">6 Most Common Ways to Tell If Your Windows Need To Be Replaced</h2>
+      <p class="section-lead">If you're still on the fence about replacing your home's windows, there are a few telltale signs that point to moving this particular project to the top of your to-do list.</p>
     </div>
 
-    <div class="numbered-list">
-      <div class="numbered-item">
-        <div class="num">1</div>
-        <div>
-          <h4>Drafts You Can Feel</h4>
-          <p>Warped frames and broken seals let outside air in, even with the windows shut. If you feel a breeze near a closed window, the seal has already failed.</p>
-        </div>
-      </div>
-      <div class="numbered-item">
-        <div class="num">2</div>
-        <div>
-          <h4>Rising Energy Bills</h4>
-          <p>As insulation breaks down, your HVAC system works harder to hold a comfortable temperature — every season, whether you notice it or not. The U.S. Department of Energy estimates that heat gain and loss through windows accounts for 25–30% of a home's heating and cooling energy use.</p>
-        </div>
-      </div>
-      <div class="numbered-item">
-        <div class="num">3</div>
-        <div>
-          <h4>Foggy Or Cloudy Glass</h4>
-          <p>Condensation trapped between panes means the insulating seal has failed and the gas fill has escaped — a repair job that usually isn't worth doing.</p>
-        </div>
-      </div>
-      <div class="numbered-item">
-        <div class="num">4</div>
-        <div>
-          <h4>Stuck Or Hard-To-Open Windows</h4>
-          <p>Age, humidity, and years of repainting cause frames to swell, warp, or bind — turning a simple task into a daily fight with the window.</p>
-        </div>
-      </div>
-      <div class="numbered-item">
-        <div class="num">5</div>
-        <div>
-          <h4>Soft, Discolored, Or Rotting Frames</h4>
-          <p>Moisture intrusion around aging frames can lead to rot and, if ignored long enough, costly structural damage well beyond the window itself.</p>
-        </div>
-      </div>
+    <div class="body-list">
+      <ul>
+        <li><strong>Moisture:</strong> Condensation between panes, water stains, or mold around the frame usually means the seal has failed and the window is no longer keeping the elements out.</li>
+        <li><strong>Rising Energy Bills:</strong> If your heating and cooling costs keep climbing, your windows may no longer be holding a comfortable temperature — the U.S. Department of Energy estimates that heat gain and loss through windows accounts for 25–30% of a home's heating and cooling energy use.</li>
+        <li><strong>Outside Noise:</strong> Traffic, neighbors, and weather coming through louder than they used to is often a sign your windows have lost their insulating seal.</li>
+        <li><strong>Difficulty Opening Or Closing:</strong> Windows should open and close smoothly. If yours are sticking, swelling, or hard to move, age and moisture have likely warped the frame.</li>
+        <li><strong>Visible Damage:</strong> Cracks, chips, water damage, or mold around the frame won't get better on their own — and often point to bigger issues developing out of sight.</li>
+        <li><strong>Outdated Style:</strong> If your windows are dragging down your home's curb appeal or resale value, an upgrade can make an immediate visual difference.</li>
+      </ul>
     </div>
-
-    <div class="energy-stat">
-      <b>Upgrading from single-pane or older aluminum-frame windows to ENERGY STAR&reg; certified replacements is one of the most effective ways to close that energy gap.</b> Modern replacement windows are engineered specifically to stop the drafts, condensation, and heat loss that come with age.
-      <cite>Source: U.S. Department of Energy / ENERGY STAR&reg; residential window guidance.</cite>
-    </div>
-
-    <p class="bridge-line">The good news: none of this is permanent.</p>
   </div>
 </section>
 
 <!-- ─── BENEFITS ─── -->
 <section class="section">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head wide">
       <span class="eyebrow">More Than Energy Savings</span>
-      <h2 class="section-title">Does Replacing Your Windows Actually Make A Difference?</h2>
+      <h2 class="section-title">Benefits of Replacing Your Home's Windows</h2>
       <p class="section-lead">Energy efficiency is only the beginning. Here's what homeowners actually notice after replacing old windows.</p>
     </div>
-    <div class="numbered-list">
-      <div class="numbered-item">
-        <div class="num">1</div>
-        <div>
-          <h4>Lower Monthly Energy Bills</h4>
-          <p>Less strain on your HVAC system means real, ongoing savings — season after season, not just a one-time discount.</p>
-        </div>
-      </div>
-      <div class="numbered-item">
-        <div class="num">2</div>
-        <div>
-          <h4>A More Comfortable Home</h4>
-          <p>No more cold spots near the window in winter, or trapped heat in summer — just a more even temperature, room to room.</p>
-        </div>
-      </div>
-      <div class="numbered-item">
-        <div class="num">3</div>
-        <div>
-          <h4>Quieter Living Spaces</h4>
-          <p>Dual-pane glass and tighter seals cut down on outside noise, so traffic and neighbors stay outside where they belong.</p>
-        </div>
-      </div>
-      <div class="numbered-item">
-        <div class="num">4</div>
-        <div>
-          <h4>Furniture &amp; Flooring Protection</h4>
-          <p>UV-blocking coatings help prevent the fading that harsh sunlight causes on floors, rugs, art, and furniture over time.</p>
-        </div>
-      </div>
-      <div class="numbered-item">
-        <div class="num">5</div>
-        <div>
-          <h4>Low Maintenance, Long Life</h4>
-          <p>Modern vinyl and fiberglass frames won't rot, rust, or warp — no scraping, sanding, or repainting required.</p>
-        </div>
-      </div>
-      <div class="numbered-item">
-        <div class="num">6</div>
-        <div>
-          <h4>Added Home Value</h4>
-          <p>Updated, energy-efficient windows are one of the most visible — and most valued — upgrades a home can have.</p>
-        </div>
-      </div>
+    <div class="body-list">
+      <ul>
+        <li><strong>Lower Monthly Energy Bills:</strong> Less strain on your HVAC system means real, ongoing savings — season after season, not just a one-time discount.</li>
+        <li><strong>A More Comfortable Home:</strong> No more cold spots near the window in winter, or trapped heat in summer — just a more even temperature, room to room.</li>
+        <li><strong>Quieter Living Spaces:</strong> Dual-pane glass and tighter seals cut down on outside noise, so traffic and neighbors stay outside where they belong.</li>
+        <li><strong>Furniture &amp; Flooring Protection:</strong> UV-blocking coatings help prevent the fading that harsh sunlight causes on floors, rugs, art, and furniture over time.</li>
+        <li><strong>Low Maintenance, Long Life:</strong> Modern vinyl and fiberglass frames won't rot, rust, or warp — no scraping, sanding, or repainting required.</li>
+        <li><strong>Added Home Value:</strong> Updated, energy-efficient windows are one of the most visible — and most valued — upgrades a home can have.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -920,7 +792,7 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Simple Process</span>
-      <h2 class="section-title">From Estimate To Installed, Effortlessly.</h2>
+      <h2 class="section-title">We Make It Easy &amp; Affordable to Replace Your Windows</h2>
       <p class="section-lead">Affordable Home connects you with a certified local installer — here's what to expect from start to finish.</p>
     </div>
     <div class="steps-grid">
