@@ -120,15 +120,12 @@
     text-decoration: none;
   }
   .header-nav a:hover { color: var(--primary); }
-  .header-cta { display: flex; align-items: center; }
-  .btn-header { padding: 11px 20px; font-size: 14px; }
   @media (max-width: 860px) {
     .header-nav-links { display: none; }
     .header-inner { height: 62px; }
     .header-logo img { height: 24px; }
   }
   @media (max-width: 640px) {
-    .header-cta { display: none; }
     .header-nav { display: none; }
     .header-inner { justify-content: center; }
   }
@@ -343,16 +340,6 @@
   /* ─── SECTION GENERIC ─── */
   section.section { padding: 84px 0; }
   .section-alt { background: var(--primary-50); }
-  .eyebrow {
-    display: inline-block;
-    color: var(--primary);
-    font-weight: 800;
-    font-size: 12.5px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .eyebrow.amber { color: var(--secondary-dark); }
   .section-title {
     font-size: clamp(26px, 3.2vw, 38px);
     font-weight: 700;
@@ -572,13 +559,13 @@
       <img src="assets/logo.svg" alt="Affordable Home" />
     </a>
     <nav class="header-nav">
-      <div class="header-nav-links header-nav">
-        <a href="#why-it-matters">Why It Matters</a>
-        <a href="#how-it-works">How It Works</a>
+      <div class="header-nav-links">
+        <a href="#why-it-matters">When To Replace</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#styles">Styles</a>
+        <a href="#how-it-works">Our Process</a>
+        <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
-      </div>
-      <div class="header-cta">
-        <a href="#estimate" class="btn btn-amber btn-header">Get My Free Estimate</a>
       </div>
     </nav>
   </div>
@@ -707,29 +694,27 @@
 <section class="section" id="why-it-matters">
   <div class="wrap">
     <div class="section-head wide">
-      <span class="eyebrow">Why It Matters</span>
-      <h2 class="section-title">6 Most Common Ways to Tell If Your Windows Need To Be Replaced</h2>
-      <p class="section-lead">If you're still on the fence about replacing your home's windows, there are a few telltale signs that point to moving this particular project to the top of your to-do list.</p>
+      <h2 class="section-title">The Most Common Ways to Tell If Your Windows Need To Be Replaced</h2>
+      <p class="section-lead">Not sure if it's the right time to replace your windows? If you've noticed any of the issues below, upgrading your windows could improve your home's comfort, efficiency, and appearance.</p>
     </div>
 
     <div class="body-list">
       <ul>
-        <li><strong>Moisture:</strong> Condensation between panes, water stains, or mold around the frame usually means the seal has failed and the window is no longer keeping the elements out.</li>
-        <li><strong>Rising Energy Bills:</strong> If your heating and cooling costs keep climbing, your windows may no longer be holding a comfortable temperature — the U.S. Department of Energy estimates that heat gain and loss through windows accounts for 25–30% of a home's heating and cooling energy use.</li>
-        <li><strong>Outside Noise:</strong> Traffic, neighbors, and weather coming through louder than they used to is often a sign your windows have lost their insulating seal.</li>
-        <li><strong>Difficulty Opening Or Closing:</strong> Windows should open and close smoothly. If yours are sticking, swelling, or hard to move, age and moisture have likely warped the frame.</li>
-        <li><strong>Visible Damage:</strong> Cracks, chips, water damage, or mold around the frame won't get better on their own — and often point to bigger issues developing out of sight.</li>
-        <li><strong>Outdated Style:</strong> If your windows are dragging down your home's curb appeal or resale value, an upgrade can make an immediate visual difference.</li>
+        <li><strong>Drafts &amp; Moisture:</strong> Condensation between panes, water stains, mold, or noticeable drafts are often signs that your windows have lost their seal and are no longer protecting your home as they should.</li>
+        <li><strong>Rising Energy Costs:</strong> Older or inefficient windows can let heated and cooled air escape, forcing your HVAC system to work harder and increasing your monthly utility bills.</li>
+        <li><strong>Too Much Outside Noise:</strong> If traffic, barking dogs, lawn equipment, or neighborhood noise easily make their way inside, your current windows may not provide the insulation your home needs.</li>
+        <li><strong>Windows That Stick Or Won't Open:</strong> Windows should open, close, and lock with ease. If they're difficult to operate or no longer function properly, it may be time for a replacement.</li>
+        <li><strong>Cracks Or Visible Wear:</strong> Damaged frames, cracked glass, rot, warping, or other signs of aging can reduce your home's energy efficiency and often become more expensive to repair over time.</li>
+        <li><strong>An Outdated Look:</strong> Replacing older windows is one of the easiest ways to boost curb appeal, modernize your home's exterior, and increase its overall value.</li>
       </ul>
     </div>
   </div>
 </section>
 
 <!-- ─── BENEFITS ─── -->
-<section class="section">
+<section class="section" id="benefits">
   <div class="wrap">
     <div class="section-head wide">
-      <span class="eyebrow">More Than Energy Savings</span>
       <h2 class="section-title">Benefits of Replacing Your Home's Windows</h2>
       <p class="section-lead">Energy efficiency is only the beginning. Here's what homeowners actually notice after replacing old windows.</p>
     </div>
@@ -747,10 +732,9 @@
 </section>
 
 <!-- ─── STYLE GALLERY ─── -->
-<section class="section section-alt">
+<section class="section section-alt" id="styles">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow amber">See The Options</span>
       <h2 class="section-title">A Style For Every Home.</h2>
       <p class="section-lead">Your local pro will help you choose the right fit for your home's architecture and your budget. Photos of your options are added after your free estimate — for now, here's a look at common styles.</p>
     </div>
@@ -790,8 +774,7 @@
 <!-- ─── HOW IT WORKS ─── -->
 <section class="section" id="how-it-works">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Simple Process</span>
+    <div class="section-head wide">
       <h2 class="section-title">We Make It Easy &amp; Affordable to Replace Your Windows</h2>
       <p class="section-lead">Affordable Home connects you with a certified local installer — here's what to expect from start to finish.</p>
     </div>
@@ -821,11 +804,10 @@
 </section>
 
 <!-- ─── TESTIMONIALS ─── -->
-<section class="section section-alt">
+<section class="section section-alt" id="reviews">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow amber">Homeowner Reviews</span>
-      <h2 class="section-title">Trusted By Homeowners Across The Region.</h2>
+    <div class="section-head wide">
+      <h2 class="section-title">Trusted By Homeowners Nationwide</h2>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
@@ -854,8 +836,7 @@
 <section class="section" id="faq">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow">Common Questions</span>
-      <h2 class="section-title">Before You Reach Out.</h2>
+      <h2 class="section-title">Common Questions</h2>
       <p class="section-lead">A few things homeowners usually want to know before requesting an estimate.</p>
     </div>
     <div class="faq-list">
