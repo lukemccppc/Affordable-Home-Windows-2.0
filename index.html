@@ -265,6 +265,11 @@
     opacity: .8;
     flex-shrink: 0;
   }
+  @media (min-width: 641px) {
+    .logo-marquee { max-width: 728px; }
+    .logo-track { gap: 57px; }
+    .logo-track img { height: 34px; max-width: 156px; }
+  }
   @keyframes logoScroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
