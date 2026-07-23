@@ -234,7 +234,7 @@
   .hero-pill {
     display: inline-flex;
     align-items: center;
-    background: #C0D5DE;
+    background: #0B5498;
     color: var(--white);
     font-size: 14.5px;
     font-weight: 700;
@@ -242,6 +242,7 @@
     border-radius: 999px;
     white-space: nowrap;
   }
+  .hero-plain-mobile { display: none; }
   .logo-marquee {
     max-width: 560px;
     overflow: hidden;
@@ -553,6 +554,15 @@
     .wrap { padding: 0 18px; }
     .hero-grid { padding: 32px 18px 48px; gap: 32px; }
     .hero-headline { font-size: 38px; }
+    .hero-plain-mobile {
+      display: block;
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .hero-pill-first { display: none; }
     .logo-marquee { margin-top: 8px; }
     .field-row { grid-template-columns: 1fr; }
     .style-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -608,8 +618,9 @@
     <div class="hero-copy">
       <div class="hero-eyebrow">Limited-Time Offer</div>
       <h1 class="hero-headline">Get <em>50% Off</em> All Window Styles</h1>
+      <p class="hero-plain-mobile">PLUS NO PAYMENTS FOR 2 YEARS</p>
       <div class="hero-pills">
-        <span class="hero-pill">0 Payments for 2 Years</span>
+        <span class="hero-pill hero-pill-first">0 Payments for 2 Years</span>
         <span class="hero-pill">As Fast As 1 Day Installation</span>
         <span class="hero-pill">5% Discount for Military and Seniors</span>
       </div>
