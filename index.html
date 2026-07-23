@@ -222,14 +222,25 @@
     color: var(--white);
     margin-bottom: 20px;
     max-width: 620px;
+    text-transform: uppercase;
   }
   .hero-headline em { font-style: normal; color: var(--white); font-weight: 600; }
-  .hero-sub {
-    font-size: 26.25px;
-    color: rgba(255,255,255,.82);
-    max-width: 640px;
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-bottom: 30px;
-    line-height: 1.4;
+  }
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    background: #C0D5DE;
+    color: var(--white);
+    font-size: 14.5px;
+    font-weight: 700;
+    padding: 11px 20px;
+    border-radius: 999px;
+    white-space: nowrap;
   }
   .logo-marquee {
     max-width: 560px;
@@ -530,7 +541,7 @@
   @media (max-width: 980px) {
     .hero-grid { grid-template-columns: 1fr; padding: 40px 20px 56px; }
     .hero-copy, .form-card, .logo-marquee { grid-column: auto; grid-row: auto; }
-    .hero-headline, .hero-sub, .logo-marquee { max-width: 100%; }
+    .hero-headline, .logo-marquee { max-width: 100%; }
     .form-card { max-width: 460px; }
     .style-grid { grid-template-columns: repeat(2, 1fr); }
     .testi-grid { grid-template-columns: 1fr; }
@@ -597,7 +608,11 @@
     <div class="hero-copy">
       <div class="hero-eyebrow">Limited-Time Offer</div>
       <h1 class="hero-headline">Get <em>50% Off</em> All Window Styles</h1>
-      <p class="hero-sub">Plus No Payments or Interest for 12 Months<br>And Additional 5% for Military and Seniors</p>
+      <div class="hero-pills">
+        <span class="hero-pill">0 Payments for 2 Years</span>
+        <span class="hero-pill">As Fast As 1 Day Installation</span>
+        <span class="hero-pill">5% Discount for Military and Seniors</span>
+      </div>
     </div>
 
     <div class="form-card" id="estimate">
