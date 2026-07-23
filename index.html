@@ -228,7 +228,7 @@
   .hero-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px;
     margin-bottom: 30px;
   }
   .hero-pill {
@@ -236,9 +236,9 @@
     align-items: center;
     background: #0B5498;
     color: var(--white);
-    font-size: 14.5px;
+    font-size: 12px;
     font-weight: 700;
-    padding: 11px 20px;
+    padding: 8px 14px;
     border-radius: 999px;
     white-space: nowrap;
   }
@@ -623,7 +623,7 @@
   <div class="hero-grid">
     <div class="hero-copy">
       <div class="hero-eyebrow">Limited-Time Offer</div>
-      <h1 class="hero-headline">Get <em>50% Off</em> All Window Styles</h1>
+      <h1 class="hero-headline">Get Up To <em>50% Off</em> All Window Styles</h1>
       <p class="hero-plain-mobile">PLUS NO PAYMENTS FOR 2 YEARS</p>
       <div class="hero-pills">
         <span class="hero-pill hero-pill-first">0 Payments for 2 Years</span>
@@ -634,7 +634,7 @@
 
     <div class="form-card" id="estimate">
       <div class="fc-body">
-        <div class="fc-title">Get a Free Replacement Window Quote</div>
+        <div class="fc-title">Start Your Free Window Quote</div>
 
         <div class="form-progress">
           <div class="fp-steps" id="fpSteps">
@@ -657,7 +657,6 @@
 
           <div class="form-step is-active" data-step="1" data-step-name="Project Location">
             <h3 class="fs-title">Where is your project?</h3>
-            <p class="fs-sub">We'll match you with a local pro who serves your area.</p>
             <div class="field">
               <input type="text" id="f-zip" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="ZIP Code" aria-label="ZIP Code" autocomplete="postal-code" required />
               <span class="field-error">Please enter a valid 5-digit ZIP code.</span>
@@ -669,7 +668,6 @@
 
           <div class="form-step" data-step="2" data-step-name="Your Name">
             <h3 class="fs-title">Who are we speaking with?</h3>
-            <p class="fs-sub">So your local pro can prepare your estimate correctly.</p>
             <div class="field-row">
               <div class="field">
                 <input type="text" id="f-first" name="first_name" placeholder="First Name" aria-label="First Name" autocomplete="given-name" required />
@@ -688,7 +686,6 @@
 
           <div class="form-step" data-step="3" data-step-name="Home Address">
             <h3 class="fs-title">What is your home address?</h3>
-            <p class="fs-sub">Used only to confirm service area and schedule your free estimate.</p>
             <div class="field">
               <input type="text" id="f-address" name="address" placeholder="Street Address" aria-label="Street Address" autocomplete="address-line1" required />
               <span class="field-error">Please enter your street address.</span>
@@ -703,7 +700,6 @@
 
           <div class="form-step" data-step="4" data-step-name="Contact Info">
             <h3 class="fs-title">Let us know how we can reach you</h3>
-            <p class="fs-sub">We'll send your free estimate details here. No spam, ever.</p>
             <div class="field">
               <input type="email" id="f-email" name="email" placeholder="Email Address" aria-label="Email Address" autocomplete="email" required />
               <span class="field-error">Please enter a valid email address.</span>
@@ -739,6 +735,67 @@
         <img src="assets/logos/tc-logo.webp" alt="" aria-hidden="true" />
         <img src="assets/logos/champion-logo.svg" alt="" aria-hidden="true" />
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STYLE GALLERY ─── -->
+<section class="section section-alt" id="styles">
+  <div class="wrap">
+    <div class="section-head wide">
+      <h2 class="section-title">Choose From Thousands of Style and Color Combinations</h2>
+      <p class="section-lead">Your local pro will help you choose the right fit for your home's architecture and your budget. Photos of your options are added after your free estimate — for now, here's a look at common styles.</p>
+    </div>
+    <div class="style-grid">
+      <div class="style-card">
+        <svg class="style-icon" viewBox="0 0 96 72" fill="none"><rect x="4" y="4" width="88" height="64" rx="3" stroke="var(--primary)" stroke-width="2.5"/><line x1="4" y1="36" x2="92" y2="36" stroke="var(--primary)" stroke-width="2"/><line x1="48" y1="4" x2="48" y2="68" stroke="var(--primary)" stroke-opacity="0.35" stroke-width="1.5"/></svg>
+        <h5>Double-Hung</h5>
+        <p>Two sashes slide vertically — a classic, versatile look for nearly any home.</p>
+      </div>
+      <div class="style-card">
+        <svg class="style-icon" viewBox="0 0 96 72" fill="none"><rect x="4" y="4" width="88" height="64" rx="3" stroke="var(--primary)" stroke-width="2.5"/><line x1="48" y1="4" x2="48" y2="68" stroke="var(--primary)" stroke-width="2"/><path d="M52 8 L88 36 L52 64" stroke="var(--primary)" stroke-opacity="0.5" stroke-width="1.5" fill="none"/></svg>
+        <h5>Casement</h5>
+        <p>Hinged at the side and opens outward with a crank for maximum airflow and a clean, unbroken view.</p>
+      </div>
+      <div class="style-card">
+        <svg class="style-icon" viewBox="0 0 96 72" fill="none"><rect x="4" y="4" width="88" height="64" rx="3" stroke="var(--primary)" stroke-width="2.5"/><line x1="48" y1="4" x2="48" y2="68" stroke="var(--primary)" stroke-width="2"/><path d="M8 20h16M8 30h12" stroke="var(--primary)" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/></svg>
+        <h5>Sliding</h5>
+        <p>One or both sashes glide side to side — an easy-operating fit for smaller openings.</p>
+      </div>
+      <div class="style-card">
+        <svg class="style-icon" viewBox="0 0 96 72" fill="none"><path d="M14 8 L4 68 L92 68 L82 8 Z" stroke="var(--primary)" stroke-width="2.5"/><line x1="34" y1="8" x2="30" y2="68" stroke="var(--primary)" stroke-opacity="0.4" stroke-width="1.5"/><line x1="62" y1="8" x2="66" y2="68" stroke="var(--primary)" stroke-opacity="0.4" stroke-width="1.5"/></svg>
+        <h5>Bay &amp; Bow</h5>
+        <p>Angled, multi-panel windows that extend outward, adding light, depth, and space to any room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="section-head wide">
+      <h2 class="section-title">How Will New Windows Look On Your Home?</h2>
+      <p class="section-lead">Energy-efficient, custom-fit windows, installed right, on homes like yours.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="assets/gallery/gallery-1.jpg" alt="Modern home exterior with large black-framed replacement windows" loading="lazy" />
+      </div>
+      <div class="gallery-card">
+        <img src="assets/gallery/gallery-2.jpg" alt="Bright living room with white-framed double-hung replacement windows" loading="lazy" />
+      </div>
+      <div class="gallery-card">
+        <img src="assets/gallery/gallery-3.jpg" alt="Brick home exterior with a white-framed bay window installation" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="offer-strip">
+      <div>
+        <h3>50% Off Windows + Flexible Financing</h3>
+        <p>Upgrade your home today and pay over time with financing options many homeowners qualify for on the spot.</p>
+      </div>
+      <a href="#estimate" class="btn btn-amber btn-quote">Get a Free Quote</a>
     </div>
   </div>
 </section>
@@ -796,59 +853,6 @@
         <p>Upgrade your home today and pay over time with financing options many homeowners qualify for on the spot.</p>
       </div>
       <a href="#estimate" class="btn btn-amber btn-quote">Get a Free Quote</a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── STYLE GALLERY ─── -->
-<section class="section section-alt" id="styles">
-  <div class="wrap">
-    <div class="section-head wide">
-      <h2 class="section-title">Choose From Thousands of Style and Color Combinations</h2>
-      <p class="section-lead">Your local pro will help you choose the right fit for your home's architecture and your budget. Photos of your options are added after your free estimate — for now, here's a look at common styles.</p>
-    </div>
-    <div class="style-grid">
-      <div class="style-card">
-        <svg class="style-icon" viewBox="0 0 96 72" fill="none"><rect x="4" y="4" width="88" height="64" rx="3" stroke="var(--primary)" stroke-width="2.5"/><line x1="4" y1="36" x2="92" y2="36" stroke="var(--primary)" stroke-width="2"/><line x1="48" y1="4" x2="48" y2="68" stroke="var(--primary)" stroke-opacity="0.35" stroke-width="1.5"/></svg>
-        <h5>Double-Hung</h5>
-        <p>Two sashes slide vertically — a classic, versatile look for nearly any home.</p>
-      </div>
-      <div class="style-card">
-        <svg class="style-icon" viewBox="0 0 96 72" fill="none"><rect x="4" y="4" width="88" height="64" rx="3" stroke="var(--primary)" stroke-width="2.5"/><line x1="48" y1="4" x2="48" y2="68" stroke="var(--primary)" stroke-width="2"/><path d="M52 8 L88 36 L52 64" stroke="var(--primary)" stroke-opacity="0.5" stroke-width="1.5" fill="none"/></svg>
-        <h5>Casement</h5>
-        <p>Hinged at the side and opens outward with a crank for maximum airflow and a clean, unbroken view.</p>
-      </div>
-      <div class="style-card">
-        <svg class="style-icon" viewBox="0 0 96 72" fill="none"><rect x="4" y="4" width="88" height="64" rx="3" stroke="var(--primary)" stroke-width="2.5"/><line x1="48" y1="4" x2="48" y2="68" stroke="var(--primary)" stroke-width="2"/><path d="M8 20h16M8 30h12" stroke="var(--primary)" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/></svg>
-        <h5>Sliding</h5>
-        <p>One or both sashes glide side to side — an easy-operating fit for smaller openings.</p>
-      </div>
-      <div class="style-card">
-        <svg class="style-icon" viewBox="0 0 96 72" fill="none"><path d="M14 8 L4 68 L92 68 L82 8 Z" stroke="var(--primary)" stroke-width="2.5"/><line x1="34" y1="8" x2="30" y2="68" stroke="var(--primary)" stroke-opacity="0.4" stroke-width="1.5"/><line x1="62" y1="8" x2="66" y2="68" stroke="var(--primary)" stroke-opacity="0.4" stroke-width="1.5"/></svg>
-        <h5>Bay &amp; Bow</h5>
-        <p>Angled, multi-panel windows that extend outward, adding light, depth, and space to any room.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── GALLERY ─── -->
-<section class="section" id="gallery">
-  <div class="wrap">
-    <div class="section-head wide">
-      <h2 class="section-title">How Will New Windows Look On Your Home?</h2>
-      <p class="section-lead">Energy-efficient, custom-fit windows, installed right, on homes like yours.</p>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-card">
-        <img src="assets/gallery/gallery-1.jpg" alt="Modern home exterior with large black-framed replacement windows" loading="lazy" />
-      </div>
-      <div class="gallery-card">
-        <img src="assets/gallery/gallery-2.jpg" alt="Bright living room with white-framed double-hung replacement windows" loading="lazy" />
-      </div>
-      <div class="gallery-card">
-        <img src="assets/gallery/gallery-3.jpg" alt="Brick home exterior with a white-framed bay window installation" loading="lazy" />
-      </div>
     </div>
   </div>
 </section>
