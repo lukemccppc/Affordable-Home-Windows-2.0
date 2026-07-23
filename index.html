@@ -388,7 +388,7 @@
 
   /* ─── SECTION GENERIC ─── */
   section.section { padding: 84px 0; }
-  #why-it-matters { padding-bottom: 24px; }
+  #why-it-matters { padding-top: 32px; padding-bottom: 24px; }
   #benefits { padding-top: 40px; }
   .section-alt { background: var(--primary-50); }
   .section-title {
@@ -404,9 +404,13 @@
   .section-head.center { text-align: center; }
   .section-head.center .section-title, .section-head.center .section-lead { margin-left: auto; margin-right: auto; }
   .section-head.wide .section-title, .section-head.wide .section-lead { max-width: 900px; }
+  #styles .section-title, #styles .section-lead,
+  #why-it-matters .section-title, #why-it-matters .section-lead,
+  #benefits .section-title, #benefits .section-lead { max-width: 1050px; }
 
   /* ─── BODY LIST (simple, text-based) ─── */
   .body-list { max-width: 900px; }
+  #why-it-matters .body-list, #benefits .body-list { max-width: 1050px; }
   .body-list ul {
     list-style: disc;
     padding-left: 22px;
@@ -569,6 +573,8 @@
       white-space: nowrap;
     }
     .hero-pill-first { display: none; }
+    .hero-copy { text-align: center; }
+    .hero-pills { justify-content: center; margin-bottom: 16px; }
     .logo-marquee { margin-top: 8px; }
     .field-row { grid-template-columns: 1fr; }
     .style-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -622,7 +628,7 @@
   <div class="hero-video-overlay"></div>
   <div class="hero-grid">
     <div class="hero-copy">
-      <div class="hero-eyebrow">Limited-Time Offer</div>
+      <div class="hero-eyebrow">For a Limited Time</div>
       <h1 class="hero-headline">Get Up To <em>50% Off</em> All Window Styles</h1>
       <p class="hero-plain-mobile">PLUS NO PAYMENTS FOR 2 YEARS</p>
       <div class="hero-pills">
