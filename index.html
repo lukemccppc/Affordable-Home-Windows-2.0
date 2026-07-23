@@ -119,7 +119,7 @@
   .header-nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 34px;
   }
   .header-nav a {
     font-size: 14.5px;
@@ -242,7 +242,12 @@
     border-radius: 999px;
     white-space: nowrap;
   }
-  .hero-plain-mobile { display: none; }
+  .hero-pill-mobile-first { display: none; }
+  @media (min-width: 641px) {
+    .hero-eyebrow { font-size: 14px; }
+    .hero-pill-discount { display: none; }
+    .hero-pill-first, .hero-pill-install { font-size: 15px; padding: 12px 22px; }
+  }
   .logo-marquee {
     max-width: 560px;
     overflow: hidden;
@@ -562,19 +567,13 @@
     .header-inner { padding: 0 18px; }
     .wrap { padding: 0 18px; }
     .hero-grid { padding: 32px 18px 48px; gap: 32px; }
-    .hero-headline { font-size: 38px; }
-    .hero-plain-mobile {
-      display: block;
-      color: var(--white);
-      font-size: 15.5px;
-      font-weight: 500;
-      line-height: 1.3;
-      margin-bottom: 14px;
-      white-space: nowrap;
-    }
+    .hero-headline { font-size: 30px; }
+    .hero-eyebrow { display: none; }
     .hero-pill-first { display: none; }
+    .hero-pill-mobile-first { display: inline-flex; }
     .hero-copy { text-align: center; }
     .hero-pills { justify-content: center; margin-bottom: 16px; }
+    .hero-pill { font-size: 14.5px; padding: 11px 18px; }
     .logo-marquee { margin-top: 8px; }
     .field-row { grid-template-columns: 1fr; }
     .style-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -594,10 +593,10 @@
     </a>
     <nav class="header-nav">
       <div class="header-nav-links">
-        <a href="#why-it-matters">When To Replace</a>
-        <a href="#benefits">Benefits</a>
         <a href="#styles">Styles</a>
         <a href="#gallery">Gallery</a>
+        <a href="#why-it-matters">When To Replace</a>
+        <a href="#benefits">Benefits</a>
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
       </div>
@@ -611,10 +610,10 @@
     </button>
   </div>
   <div class="mobile-nav" id="mobileNav">
-    <a href="#why-it-matters">When To Replace</a>
-    <a href="#benefits">Benefits</a>
     <a href="#styles">Styles</a>
     <a href="#gallery">Gallery</a>
+    <a href="#why-it-matters">When To Replace</a>
+    <a href="#benefits">Benefits</a>
     <a href="#reviews">Reviews</a>
     <a href="#faq">FAQ</a>
   </div>
@@ -623,18 +622,18 @@
 <!-- ─── HERO ─── -->
 <section class="hero" id="top">
   <video id="heroVideo" class="hero-video" autoplay muted playsinline aria-hidden="true">
-    <source src="assets/hero-video-1.mp4" type="video/mp4" />
+    <source src="assets/hero-video.mp4" type="video/mp4" />
   </video>
   <div class="hero-video-overlay"></div>
   <div class="hero-grid">
     <div class="hero-copy">
       <div class="hero-eyebrow">For a Limited Time</div>
       <h1 class="hero-headline">Get Up To <em>50% Off</em> All Window Styles</h1>
-      <p class="hero-plain-mobile">PLUS NO PAYMENTS FOR 2 YEARS</p>
       <div class="hero-pills">
         <span class="hero-pill hero-pill-first">0 Payments for 2 Years</span>
-        <span class="hero-pill">As Fast As 1 Day Installation</span>
-        <span class="hero-pill">5% Discount for Military and Seniors</span>
+        <span class="hero-pill hero-pill-mobile-first">Plus No Payments for 2 Years</span>
+        <span class="hero-pill hero-pill-install">As Fast As 1 Day Installation</span>
+        <span class="hero-pill hero-pill-discount">5% Discount for Military and Seniors</span>
       </div>
     </div>
 
@@ -979,16 +978,31 @@
       });
     }
 
-    // Hero video playlist — cycle through all hero videos on loop
+    // Hero video — boomerang: play forward, then reverse back to start, then repeat
     var heroVideo = document.getElementById('heroVideo');
     if (heroVideo) {
-      var heroSources = ['assets/hero-video-1.mp4', 'assets/hero-video-2.mp4', 'assets/hero-video-3.mp4'];
-      var heroIndex = 0;
+      var heroRafId = null;
+      var heroLastTs = null;
+
+      function reverseStep(ts) {
+        if (heroLastTs === null) heroLastTs = ts;
+        var delta = (ts - heroLastTs) / 1000;
+        heroLastTs = ts;
+        var next = heroVideo.currentTime - delta;
+        if (next <= 0.03) {
+          heroVideo.currentTime = 0;
+          heroLastTs = null;
+          heroVideo.play();
+          return;
+        }
+        heroVideo.currentTime = next;
+        heroRafId = requestAnimationFrame(reverseStep);
+      }
+
       heroVideo.addEventListener('ended', function () {
-        heroIndex = (heroIndex + 1) % heroSources.length;
-        heroVideo.src = heroSources[heroIndex];
-        heroVideo.load();
-        heroVideo.play();
+        heroVideo.pause();
+        heroLastTs = null;
+        heroRafId = requestAnimationFrame(reverseStep);
       });
     }
 
