@@ -570,22 +570,20 @@
     .hero-headline { font-size: 30px; }
     .hero-eyebrow { display: none; }
     .hero-pill-first { display: none; }
-    .hero-pill-mobile-first { display: inline-flex; }
+    .hero-pill-discount { display: none; }
     .hero-copy { text-align: center; }
-    .hero-pills {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .hero-pill {
-      font-size: 12.5px;
-      padding: 10px 10px;
-      justify-content: center;
-      text-align: center;
+    .hero-pills { margin-bottom: 20px; }
+    .hero-pill-mobile-first, .hero-pill-install {
+      display: block;
+      background: none;
+      color: var(--secondary);
+      font-weight: 500;
+      font-size: 18px;
+      padding: 0;
+      border-radius: 0;
       white-space: normal;
+      margin-bottom: 8px;
     }
-    .hero-pill-discount { grid-column: 1 / -1; justify-self: center; }
     .logo-marquee { margin-top: 8px; }
     .field-row { grid-template-columns: 1fr; }
     .style-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
